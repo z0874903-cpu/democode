@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>CodexAnalytics — Data-Driven Web Solutions</title>
+<title>CodeExAnalytics — Data-Driven Web Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
@@ -22,6 +23,8 @@
   --card-dark:rgba(79,70,229,0.06);
   --border-light:rgba(209,213,219,0.5);
   --font:'Inter',sans-serif;
+  --success:#10b981;
+  --accent:#f59e0b;
 }
 
 html{scroll-behavior:smooth}
@@ -34,9 +37,6 @@ body{
   cursor:none;
 }
 
-/* ═══════════════════════════════════
-   CUSTOM CURSOR
-═══════════════════════════════════ */
 #cursor-dot{
   position:fixed;
   width:8px;height:8px;
@@ -123,11 +123,10 @@ body:hover #cursor-dot{opacity:1}
     radial-gradient(circle 80px at 60% 45%,rgba(99,102,241,.02) 0%,transparent 70%);
 }
 
-/* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
-  padding:18px 64px;
+  padding:16px 56px;
   background:rgba(255,255,255,.7);
   backdrop-filter:blur(20px);
   border-bottom:1px solid rgba(209,213,219,.4);
@@ -136,7 +135,7 @@ nav{
 nav.solid{
   background:rgba(255,255,255,.92);
   box-shadow:0 4px 24px rgba(0,0,0,.06);
-  padding:14px 64px;
+  padding:12px 56px;
 }
 .logo{
   display:flex;align-items:center;gap:9px;
@@ -157,10 +156,11 @@ nav.solid{
 .nav-links a:hover{color:var(--blue)}
 .btn-nav{
   background:linear-gradient(135deg,var(--blue),var(--purple));
-  color:#fff;padding:9px 22px;border-radius:8px;
+  color:#fff;padding:10px 24px;border-radius:8px;
   font-weight:600;font-size:.85rem;text-decoration:none;
   box-shadow:0 4px 16px rgba(79,70,229,.3);
   transition:opacity .2s,transform .2s,box-shadow .2s;
+  display:flex;align-items:center;gap:6px;
 }
 .btn-nav:hover{opacity:.9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(79,70,229,.4)}
 .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
@@ -176,218 +176,379 @@ nav.solid{
 .mob-overlay a:hover{color:var(--blue)}
 .mob-x{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--text-light);font-size:1.8rem;cursor:pointer}
 
-/* HERO */
 #hero{
   min-height:100vh;
   display:flex;align-items:center;
-  padding:100px 64px 70px;
-  gap:56px;
+  padding:90px 56px 60px;
+  gap:48px;
   position:relative;z-index:1;
 }
-.hero-left{flex:1;max-width:470px}
+.hero-left{flex:1;max-width:520px}
 .hero-left h1{
-  font-size:clamp(2.1rem,3.8vw,3.3rem);
-  font-weight:800;line-height:1.14;
-  letter-spacing:-.025em;margin-bottom:18px;
+  font-size:clamp(2.2rem,4vw,3.6rem);
+  font-weight:800;line-height:1.1;
+  letter-spacing:-.03em;margin-bottom:20px;
   color:var(--text-dark);
+  background:linear-gradient(135deg,var(--text-dark),var(--blue));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
 }
 .hero-left p{
-  font-size:.97rem;color:var(--text-light);line-height:1.72;
-  margin-bottom:32px;max-width:370px;font-weight:400;
+  font-size:1rem;color:var(--text-light);line-height:1.75;
+  margin-bottom:36px;max-width:420px;font-weight:400;
 }
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px}
 .btn-cta{
   background:linear-gradient(135deg,var(--blue),var(--purple));
-  color:#fff;padding:12px 28px;border-radius:8px;
-  font-weight:600;font-size:.9rem;text-decoration:none;
-  box-shadow:0 6px 24px rgba(79,70,229,.3);
+  color:#fff;padding:14px 32px;border-radius:10px;
+  font-weight:600;font-size:.95rem;text-decoration:none;
+  box-shadow:0 8px 24px rgba(79,70,229,.3);
   transition:opacity .2s,transform .2s,box-shadow .2s;
   position:relative;overflow:hidden;
   border:none;cursor:pointer;
+  display:inline-flex;align-items:center;gap:8px;
 }
 .btn-cta::after{
   content:'';position:absolute;inset:0;
   background:linear-gradient(135deg,rgba(255,255,255,.12),transparent);
   opacity:0;transition:opacity .2s;
 }
-.btn-cta:hover{opacity:.9;transform:translateY(-2px);box-shadow:0 10px 32px rgba(79,70,229,.4)}
+.btn-cta:hover{opacity:.9;transform:translateY(-3px);box-shadow:0 12px 32px rgba(79,70,229,.5)}
 .btn-cta:hover::after{opacity:1}
 .btn-ghost{
-  background:rgba(255,255,255,.6);border:1px solid rgba(209,213,219,.7);
-  color:var(--text-dark);padding:12px 28px;border-radius:8px;
-  font-weight:500;font-size:.9rem;text-decoration:none;
+  background:rgba(255,255,255,.7);border:1.5px solid rgba(79,70,229,.2);
+  color:var(--text-dark);padding:14px 32px;border-radius:10px;
+  font-weight:600;font-size:.95rem;text-decoration:none;
   transition:all .2s;cursor:pointer;
+  display:inline-flex;align-items:center;gap:8px;
 }
-.btn-ghost:hover{background:rgba(255,255,255,.8);border-color:rgba(79,70,229,.3);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.btn-ghost:hover{
+  background:rgba(255,255,255,.9);
+  border-color:rgba(79,70,229,.5);
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(0,0,0,.08);
+}
+.hero-trust{
+  font-size:.85rem;color:var(--text-light);
+  display:flex;align-items:center;gap:12px;
+  margin-top:12px;
+}
+.hero-trust strong{color:var(--text-dark);font-weight:600}
 
 .hero-right{
-  flex:1.1;display:flex;align-items:center;justify-content:center;
+  flex:1.2;display:flex;align-items:center;justify-content:center;
   position:relative;
 }
 .db-glow{
-  position:absolute;inset:-50px;
-  background:radial-gradient(ellipse,rgba(79,70,229,.15) 0%,transparent 68%);
+  position:absolute;inset:-80px;
+  background:radial-gradient(ellipse,rgba(79,70,229,.2) 0%,rgba(124,58,237,.1) 40%,transparent 70%);
   pointer-events:none;border-radius:50%;
   animation:dbPulse 4s ease-in-out infinite;
 }
 @keyframes dbPulse{
   0%,100%{opacity:1;transform:scale(1)}
-  50%{opacity:.7;transform:scale(1.06)}
+  50%{opacity:.8;transform:scale(1.08)}
 }
 .db-wrap{
-  width:100%;max-width:530px;
-  background:rgba(255,255,255,.85);
-  border:1px solid rgba(209,213,219,.6);
+  width:100%;max-width:560px;
+  background:rgba(255,255,255,.9);
+  border:1px solid rgba(79,70,229,.15);
   border-radius:16px;
-  padding:18px;
-  box-shadow:0 20px 64px rgba(0,0,0,.08),0 0 40px rgba(79,70,229,.12);
+  padding:24px;
+  box-shadow:0 24px 80px rgba(0,0,0,.1),0 0 60px rgba(79,70,229,.15);
   position:relative;z-index:1;
   transition:transform .12s ease, box-shadow .12s ease;
   will-change:transform;
   transform-style:preserve-3d;
 }
 
-/* SECTIONS */
-.sec{position:relative;z-index:1;padding:88px 64px;background:rgba(255,255,255,.4)}
+.sec{position:relative;z-index:1;padding:80px 56px;background:rgba(255,255,255,.4)}
 .sec:nth-child(even){background:rgba(255,255,255,.2)}
-.sec-head{text-align:center;margin-bottom:44px}
+.sec-head{text-align:center;margin-bottom:52px}
 .sec-title-row{
-  display:inline-flex;align-items:center;gap:14px;margin-bottom:10px;
+  display:inline-flex;align-items:center;gap:16px;margin-bottom:12px;
 }
-.sec-line{width:55px;height:1px;background:linear-gradient(90deg,transparent,var(--blue))}
+.sec-line{width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--blue));border-radius:2px}
 .sec-line.r{background:linear-gradient(90deg,var(--blue),transparent)}
-.sec-head h2{font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:700;letter-spacing:-.02em;color:var(--text-dark)}
-.sec-sub{font-size:.86rem;color:var(--text-light);margin-top:6px}
+.sec-head h2{
+  font-size:clamp(1.6rem,3vw,2.4rem);
+  font-weight:800;letter-spacing:-.02em;color:var(--text-dark);
+  margin-bottom:8px;
+}
+.sec-sub{font-size:.95rem;color:var(--text-light);margin-top:8px;font-weight:500}
 
-/* CARD SPOTLIGHT */
 .card-spot{position:relative;overflow:hidden}
 .card-spot::before{
-  content:'';position:absolute;width:260px;height:260px;
-  border-radius:50%;background:radial-gradient(circle,rgba(79,70,229,.08) 0%,transparent 70%);
+  content:'';position:absolute;width:280px;height:280px;
+  border-radius:50%;background:radial-gradient(circle,rgba(79,70,229,.12) 0%,transparent 70%);
   pointer-events:none;opacity:0;transition:opacity .3s;
   transform:translate(-50%,-50%);
   top:var(--spot-y,50%);left:var(--spot-x,50%);
 }
 .card-spot:hover::before{opacity:1}
 
-/* WHAT WE OFFER */
-.offer-grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.offer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .offer-card{
-  background:rgba(255,255,255,.7);border:1px solid rgba(209,213,219,.5);
-  border-radius:13px;overflow:hidden;padding:20px;
-  transition:transform .3s,border-color .3s,box-shadow .3s;
+  background:rgba(255,255,255,.8);border:1px solid rgba(209,213,219,.6);
+  border-radius:14px;overflow:hidden;padding:32px 24px;
+  transition:transform .3s cubic-bezier(.23,1,.32,1),border-color .3s,box-shadow .3s;
   text-align:center;
+  position:relative;
 }
-.offer-card:hover{transform:translateY(-5px);border-color:rgba(79,70,229,.3);box-shadow:0 16px 48px rgba(79,70,229,.12)}
-.offer-icon{font-size:2.5rem;margin-bottom:16px}
-.offer-card h3{font-size:.95rem;font-weight:700;color:var(--text-dark);margin-bottom:8px}
-.offer-card p{font-size:.82rem;color:var(--text-light);line-height:1.65}
+.offer-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(79,70,229,.4);
+  box-shadow:0 20px 60px rgba(79,70,229,.15);
+}
+.offer-icon{
+  font-size:2.8rem;
+  margin-bottom:18px;
+  display:inline-flex;
+  width:64px;height:64px;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,rgba(79,70,229,.1),rgba(124,58,237,.08));
+  border-radius:14px;
+  transition:transform .3s;
+  color:var(--blue);
+}
+.offer-card:hover .offer-icon{transform:scale(1.1) rotate(5deg)}
+.offer-card h3{font-size:1.05rem;font-weight:700;color:var(--text-dark);margin-bottom:10px}
+.offer-card p{font-size:.9rem;color:var(--text-light);line-height:1.7}
 
-/* RESEARCH SUITE */
 .research-section{
-  max-width:1120px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center;
 }
-.research-left h3{font-size:1.3rem;font-weight:700;color:var(--text-dark);margin-bottom:16px}
-.research-left p{font-size:.9rem;color:var(--text-light);line-height:1.8;margin-bottom:20px}
-.research-features{display:flex;flex-direction:column;gap:12px}
+.research-left h3{font-size:1.5rem;font-weight:800;color:var(--text-dark);margin-bottom:18px}
+.research-left p{font-size:.95rem;color:var(--text-light);line-height:1.8;margin-bottom:24px}
+.research-features{display:flex;flex-direction:column;gap:14px}
 .research-item{
-  display:flex;gap:12px;
-  padding:12px;background:rgba(255,255,255,.5);border-radius:8px;
+  display:flex;gap:14px;
+  padding:14px;background:rgba(255,255,255,.6);border-radius:10px;
+  border:1px solid rgba(79,70,229,.1);
+  transition:all .3s;
 }
-.research-item-icon{font-size:1.2rem;flex-shrink:0}
-.research-item-text{font-size:.82rem;color:var(--text-light);line-height:1.6}
+.research-item:hover{
+  background:rgba(255,255,255,.8);
+  border-color:rgba(79,70,229,.2);
+  transform:translateX(4px);
+}
+.research-item-icon{
+  font-size:1.3rem;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:40px;
+  height:40px;
+  background:rgba(79,70,229,.1);
+  border-radius:8px;
+  color:var(--blue);
+}
+.research-item-text{font-size:.9rem;color:var(--text-light);line-height:1.6;font-weight:500}
 .research-right{
-  width:100%;height:280px;
-  background:linear-gradient(135deg,rgba(79,70,229,.1),rgba(124,58,237,.08));
-  border-radius:13px;display:flex;align-items:center;justify-content:center;
-  font-size:5rem;
+  width:100%;height:340px;
+  background:linear-gradient(135deg,rgba(79,70,229,.15),rgba(124,58,237,.1));
+  border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:6rem;
+  border:1px solid rgba(79,70,229,.1);
+  position:relative;
+  overflow:hidden;
+}
+.research-right::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 40%,rgba(79,70,229,.1),transparent 60%);
 }
 
-/* WHY WORK WITH US */
-.why-grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.why-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .why-card{
-  background:rgba(255,255,255,.7);border:1px solid rgba(209,213,219,.5);
-  border-radius:13px;padding:26px 22px;
-  transition:border-color .3s,transform .3s,box-shadow .3s;
+  background:rgba(255,255,255,.8);border:1px solid rgba(209,213,219,.6);
+  border-radius:14px;padding:32px 24px;
+  transition:border-color .3s,transform .3s cubic-bezier(.23,1,.32,1),box-shadow .3s;
   text-align:center;
+  position:relative;
 }
-.why-card:hover{border-color:rgba(79,70,229,.3);transform:translateY(-4px);box-shadow:0 14px 40px rgba(79,70,229,.1)}
-.why-icon{font-size:2.5rem;margin-bottom:16px}
-.why-card h3{font-size:.95rem;font-weight:700;color:var(--text-dark);margin-bottom:8px}
-.why-card p{font-size:.82rem;color:var(--text-light);line-height:1.65}
-
-/* SELECTED WORK */
-.work-grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.work-card{
-  background:rgba(255,255,255,.75);border:1px solid rgba(209,213,219,.5);
-  border-radius:13px;overflow:hidden;display:flex;
-  transition:transform .3s,border-color .3s,box-shadow .3s;
+.why-card:hover{
+  border-color:rgba(79,70,229,.4);
+  transform:translateY(-8px);
+  box-shadow:0 20px 60px rgba(79,70,229,.12);
 }
-.work-card:hover{transform:translateY(-5px);border-color:rgba(79,70,229,.3);box-shadow:0 18px 50px rgba(79,70,229,.12)}
-.work-img{
-  width:40%;flex-shrink:0;
+.why-icon{
+  font-size:2.8rem;
+  margin-bottom:18px;
+  display:inline-flex;
+  width:64px;height:64px;
+  align-items:center;
+  justify-content:center;
   background:linear-gradient(135deg,rgba(79,70,229,.1),rgba(124,58,237,.08));
-  display:flex;align-items:center;justify-content:center;font-size:3rem;
+  border-radius:14px;
+  transition:transform .3s;
+  color:var(--blue);
 }
-.work-body{padding:20px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.why-card:hover .why-icon{transform:scale(1.1) rotate(5deg)}
+.why-card h3{font-size:1.05rem;font-weight:700;color:var(--text-dark);margin-bottom:10px}
+.why-card p{font-size:.9rem;color:var(--text-light);line-height:1.7}
+
+.work-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.work-card{
+  background:rgba(255,255,255,.8);border:1px solid rgba(209,213,219,.6);
+  border-radius:14px;overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .3s cubic-bezier(.23,1,.32,1),border-color .3s,box-shadow .3s;
+}
+.work-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(79,70,229,.4);
+  box-shadow:0 20px 60px rgba(79,70,229,.15);
+}
+.work-img{
+  width:100%;height:200px;flex-shrink:0;
+  background:linear-gradient(135deg,rgba(79,70,229,.1),rgba(124,58,237,.08));
+  display:flex;align-items:center;justify-content:center;
+  font-size:3.5rem;
+  border-bottom:1px solid rgba(209,213,219,.3);
+  transition:transform .3s;
+}
+.work-card:hover .work-img{transform:scale(1.05)}
+.work-body{padding:28px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
 .work-tag{
-  display:inline-block;font-size:.65rem;padding:5px 12px;
-  border-radius:6px;background:rgba(79,70,229,.1);
-  color:var(--blue);font-weight:600;margin-bottom:10px;width:fit-content;
+  display:inline-block;font-size:.7rem;padding:6px 14px;
+  border-radius:8px;background:rgba(79,70,229,.1);
+  color:var(--blue);font-weight:700;margin-bottom:12px;width:fit-content;
+  letter-spacing:.5px;
 }
-.work-body h3{font-size:.95rem;font-weight:700;margin-bottom:8px;color:var(--text-dark)}
-.work-body p{font-size:.81rem;color:var(--text-light);line-height:1.65;margin-bottom:12px;flex:1}
+.work-body h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--text-dark)}
+.work-body p{font-size:.9rem;color:var(--text-light);line-height:1.7;margin-bottom:16px;flex:1}
 .work-link{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:.8rem;font-weight:600;color:var(--blue);text-decoration:none;transition:gap .2s,color .2s;
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.9rem;font-weight:700;color:var(--blue);text-decoration:none;
+  transition:gap .3s,color .3s;
+  width:fit-content;
 }
-.work-link:hover{gap:10px;color:var(--purple)}
+.work-link:hover{gap:12px;color:var(--purple)}
 
-/* HOW WE WORK */
-.how-grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.how-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .how-card{
-  background:rgba(255,255,255,.7);border:1px solid rgba(209,213,219,.5);
-  border-radius:13px;padding:26px 22px;
-  transition:border-color .3s,transform .3s,box-shadow .3s;
+  background:rgba(255,255,255,.8);border:1px solid rgba(209,213,219,.6);
+  border-radius:14px;padding:32px 24px;
+  transition:border-color .3s,transform .3s cubic-bezier(.23,1,.32,1),box-shadow .3s;
+  position:relative;
 }
-.how-card:hover{border-color:rgba(79,70,229,.3);transform:translateY(-4px);box-shadow:0 14px 40px rgba(79,70,229,.1)}
-.how-step{font-size:2rem;font-weight:800;color:rgba(79,70,229,.15);margin-bottom:12px;transition:color .3s}
-.how-card:hover .how-step{color:rgba(79,70,229,.3)}
-.how-card h3{font-size:1rem;font-weight:700;color:var(--text-dark);margin-bottom:8px}
-.how-card p{font-size:.82rem;color:var(--text-light);line-height:1.65}
-
-
+.how-card:hover{
+  border-color:rgba(79,70,229,.4);
+  transform:translateY(-8px);
+  box-shadow:0 20px 60px rgba(79,70,229,.12);
+}
+.how-step{
+  font-size:2.4rem;
+  font-weight:800;
+  background:linear-gradient(135deg,rgba(79,70,229,.15),rgba(124,58,237,.1));
+  width:60px;
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  color:var(--blue);
+  margin-bottom:16px;
+  transition:all .3s;
+}
+.how-card:hover .how-step{
+  background:linear-gradient(135deg,rgba(79,70,229,.25),rgba(124,58,237,.2));
+  transform:scale(1.1);
+}
+.how-card h3{font-size:1.1rem;font-weight:700;color:var(--text-dark);margin-bottom:10px}
+.how-card p{font-size:.9rem;color:var(--text-light);line-height:1.7}
 
 #cta{
-  position:relative;z-index:1;padding:88px 64px;text-align:center;
+  position:relative;z-index:1;padding:80px 56px;text-align:center;
   background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);
 }
 #cta::before{
   content:'';position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 55% 55% at 50% 50%,rgba(255,255,255,.08) 0%,transparent 70%);
+  background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(255,255,255,.12) 0%,transparent 70%);
 }
 #cta h2{
-  font-size:clamp(1.7rem,2.8vw,2.4rem);font-weight:800;letter-spacing:-.02em;
-  margin-bottom:10px;position:relative;z-index:1;color:#fff;
+  font-size:clamp(1.8rem,3.2vw,2.8rem);
+  font-weight:800;letter-spacing:-.02em;
+  margin-bottom:14px;
+  position:relative;z-index:1;color:#fff;
 }
-#cta p{font-size:.92rem;color:rgba(255,255,255,.9);margin-bottom:34px;position:relative;z-index:1}
-#cta .btn-cta{background:#fff;color:var(--blue);box-shadow:0 6px 24px rgba(0,0,0,.2)}
-#cta .btn-cta:hover{background:rgba(255,255,255,.95)}
+#cta p{
+  font-size:1rem;
+  color:rgba(255,255,255,.95);
+  margin-bottom:40px;
+  position:relative;z-index:1;
+  max-width:550px;
+  margin-left:auto;
+  margin-right:auto;
+  line-height:1.7;
+}
+#cta .btn-cta{
+  background:#fff;
+  color:var(--blue);
+  box-shadow:0 8px 32px rgba(0,0,0,.25);
+  position:relative;z-index:1;
+}
+#cta .btn-cta:hover{
+  background:rgba(255,255,255,.95);
+  box-shadow:0 12px 40px rgba(0,0,0,.3);
+}
 
 footer{
   position:relative;z-index:1;
-  padding:18px 64px;
+  padding:32px 56px;
   border-top:1px solid rgba(209,213,219,.4);
-  text-align:center;font-size:.8rem;color:var(--text-light);
-  background:rgba(255,255,255,.5);
+  text-align:center;
+  font-size:.85rem;
+  color:var(--text-light);
+  background:rgba(255,255,255,.6);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.footer-links{
+  display:flex;
+  gap:28px;
+  list-style:none;
+}
+.footer-links a{
+  color:var(--text-light);
+  text-decoration:none;
+  transition:color .2s;
+  font-weight:500;
+}
+.footer-links a:hover{color:var(--blue)}
+.footer-socials{
+  display:flex;
+  gap:16px;
+  list-style:none;
+}
+.footer-socials a{
+  display:inline-flex;
+  width:36px;
+  height:36px;
+  align-items:center;
+  justify-content:center;
+  background:rgba(79,70,229,.1);
+  border-radius:8px;
+  color:var(--blue);
+  transition:all .2s;
+  text-decoration:none;
+}
+.footer-socials a:hover{
+  background:rgba(79,70,229,.2);
+  transform:translateY(-2px);
 }
 
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-d1{transition-delay:.08s}
-.reveal-d2{transition-delay:.17s}
-.reveal-d3{transition-delay:.26s}
+.reveal-d2{transition-delay:.16s}
+.reveal-d3{transition-delay:.24s}
+.reveal-d4{transition-delay:.32s}
 
 .fade-in{animation:fadeIn .8s ease both}
 .fade-in-1{animation:fadeIn .8s .15s ease both;opacity:0}
@@ -396,35 +557,49 @@ footer{
 .fade-in-4{animation:fadeIn .8s .9s ease both;opacity:0}
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:rgba(79,70,229,.3);border-radius:3px}
-::-webkit-scrollbar-thumb:hover{background:rgba(79,70,229,.6)}
+::-webkit-scrollbar-thumb{background:rgba(79,70,229,.4);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:rgba(79,70,229,.7)}
 
-@media(max-width:1024px){
-  nav,#hero,.sec,#cta,footer{padding-left:32px;padding-right:32px}
+@media(max-width:1200px){
+  nav,#hero,.sec,#cta,footer{padding-left:40px;padding-right:40px}
+  .offer-grid,.why-grid{grid-template-columns:repeat(2,1fr)}
+  .how-grid{grid-template-columns:repeat(2,1fr)}
+  .work-grid{grid-template-columns:repeat(2,1fr)}
   #hero{flex-direction:column;padding-top:100px;gap:40px}
   .hero-right{width:100%}
-  .offer-grid,.why-grid,.test-grid{grid-template-columns:repeat(2,1fr)}
-  .how-grid{grid-template-columns:1fr 1fr}
-  .work-grid{grid-template-columns:1fr}
   .research-section{grid-template-columns:1fr}
 }
-@media(max-width:700px){
+
+@media(max-width:768px){
   body{cursor:auto}
   #cursor-dot,#cursor-ring,#cursor-glow{display:none}
-  nav{padding:14px 20px}
-  nav.solid{padding:12px 20px}
+  nav{padding:14px 24px}
+  nav.solid{padding:12px 24px}
   .nav-links{display:none}
   .ham{display:flex}
-  #hero,.sec,#cta,footer{padding-left:20px;padding-right:20px}
-  #hero{padding-top:88px}
-  .offer-grid,.why-grid,.test-grid,.how-grid{grid-template-columns:1fr}
+  #hero,.sec,#cta,footer{padding-left:24px;padding-right:24px}
+  #hero{padding-top:80px}
+  .offer-grid,.why-grid,.how-grid{grid-template-columns:1fr}
+  .work-grid{grid-template-columns:1fr}
+  .offer-card,.why-card,.how-card{padding:24px 18px}
+  .work-card{flex-direction:column}
+  .work-img{height:150px;font-size:2.5rem}
+  footer{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+  }
+  .footer-links{flex-direction:row;justify-content:center}
+  .footer-socials{justify-content:center}
 }
+
 @media(prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important}
 }
 </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -444,17 +619,19 @@ footer{
   <a href="#offer" onclick="document.getElementById('mob').classList.remove('open')">What We Offer</a>
   <a href="#work" onclick="document.getElementById('mob').classList.remove('open')">Selected Work</a>
   <a href="#why" onclick="document.getElementById('mob').classList.remove('open')">Why Us</a>
+  <a href="#cta" class="btn-nav" style="margin-top:20px">Book a Consultation</a>
 </div>
 
 <nav id="nav">
-  <a href="#" class="logo"><div class="logo-mark"></div>CodexAnalytics</a>
+  <a href="#" class="logo"><div class="logo-mark"><i class="fas fa-chart-simple" style="color:#fff;font-size:.75rem"></i></div>CodeExAnalytics</a>
   <ul class="nav-links">
     <li><a href="#" class="active">Home</a></li>
-    <li><a href="#offer">What We Offer</a></li>
-    <li><a href="#work">Selected Work</a></li>
-    <li><a href="#why">Why Us</a></li>
+    <li><a href="#offer">Services</a></li>
+    <li><a href="#solutions">Solutions</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#cta">Contact</a></li>
   </ul>
-  <a href="#cta" class="btn-nav">Get Started</a>
+  <a href="#cta" class="btn-nav"><i class="fas fa-calendar-check"></i>Book a Consultation</a>
   <button class="ham" onclick="document.getElementById('mob').classList.add('open')">
     <span></span><span></span><span></span>
   </button>
@@ -462,30 +639,107 @@ footer{
 
 <section id="hero">
   <div class="hero-left">
-    <h1 class="fade-in-1">Turn Data Into Strategic Business Advantages</h1>
-    <p class="fade-in-2">CodexAnalytics builds high-performance websites, custom analytics dashboards, and intelligent automation solutions for forward-thinking businesses.</p>
+    <h1 class="fade-in-1">Turn Data, Workflows & Ideas Into Smart Business Systems</h1>
+    <p class="fade-in-2">We build analytics dashboards, automation workflows, AI assistants, research reporting systems, and modern websites that help businesses work smarter and make better decisions.</p>
     <div class="hero-btns fade-in-3">
-      <a href="#cta" class="btn-cta">Start Your Project</a>
-      <a href="#work" class="btn-ghost">Explore Our Work</a>
+      <a href="#cta" class="btn-cta"><i class="fas fa-calendar-check"></i>Book a Consultation</a>
+      <a href="#work" class="btn-ghost"><i class="fas fa-arrow-right"></i>View Services</a>
+    </div>
+    <div class="hero-trust fade-in-3">
+      <span><strong>✓ Trusted by</strong> 50+ growing companies</span>
     </div>
   </div>
   <div class="hero-right fade-in-4">
     <div class="db-glow"></div>
     <div class="db-wrap" id="dbCard">
-      <div style="padding:20px;text-align:center;font-size:3rem">📊</div>
-      <div style="padding:0 20px 20px;text-align:center">
-        <h4 style="font-size:.9rem;font-weight:700;color:var(--text-dark);margin-bottom:10px">Analytics Dashboard</h4>
-        <p style="font-size:.8rem;color:var(--text-light);margin-bottom:16px">Real-time insights and performance metrics</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <div style="background:rgba(79,70,229,.08);padding:12px;border-radius:8px;border:1px solid rgba(79,70,229,.15)">
-            <div style="font-size:.7rem;color:var(--text-light);margin-bottom:4px">Revenue</div>
-            <div style="font-size:1.2rem;font-weight:800;color:var(--blue)">$124k</div>
+      <div style="display:flex;gap:12px;margin-bottom:16px">
+        <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center">
+          <i class="fas fa-house" style="color:#fff;font-size:.7rem"></i>
+        </div>
+        <div style="flex:1">
+          <div style="font-size:.8rem;font-weight:700;color:var(--text-dark)">Overview</div>
+          <div style="font-size:.65rem;color:var(--text-light)">May 1 – May 31, 2024</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <i class="fas fa-bell" style="color:var(--text-light);font-size:.8rem"></i>
+          <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple))"></div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px">
+        <div style="background:rgba(79,70,229,.06);padding:10px;border-radius:10px;border:1px solid rgba(79,70,229,.1)">
+          <div style="display:flex;align-items:center;gap:4px;margin-bottom:4px">
+            <i class="fas fa-sack-dollar" style="color:var(--blue);font-size:.65rem"></i>
+            <span style="font-size:.6rem;color:var(--text-light);font-weight:600">Total Revenue</span>
           </div>
-          <div style="background:rgba(79,70,229,.08);padding:12px;border-radius:8px;border:1px solid rgba(79,70,229,.15)">
-            <div style="font-size:.7rem;color:var(--text-light);margin-bottom:4px">Uptime</div>
-            <div style="font-size:1.2rem;font-weight:800;color:#10b981">99.8%</div>
+          <div style="font-size:1rem;font-weight:800;color:var(--text-dark)">$1.24M</div>
+          <div style="font-size:.55rem;color:var(--success);font-weight:600"><i class="fas fa-arrow-up" style="font-size:.5rem"></i> 12.6% vs Apr</div>
+        </div>
+        <div style="background:rgba(79,70,229,.06);padding:10px;border-radius:10px;border:1px solid rgba(79,70,229,.1)">
+          <div style="display:flex;align-items:center;gap:4px;margin-bottom:4px">
+            <i class="fas fa-cart-shopping" style="color:var(--blue);font-size:.65rem"></i>
+            <span style="font-size:.6rem;color:var(--text-light);font-weight:600">Total Orders</span>
+          </div>
+          <div style="font-size:1rem;font-weight:800;color:var(--text-dark)">8,634</div>
+          <div style="font-size:.55rem;color:var(--success);font-weight:600"><i class="fas fa-arrow-up" style="font-size:.5rem"></i> 6.2% vs Apr</div>
+        </div>
+        <div style="background:rgba(79,70,229,.06);padding:10px;border-radius:10px;border:1px solid rgba(79,70,229,.1)">
+          <div style="display:flex;align-items:center;gap:4px;margin-bottom:4px">
+            <i class="fas fa-percent" style="color:var(--blue);font-size:.65rem"></i>
+            <span style="font-size:.6rem;color:var(--text-light);font-weight:600">Conversion</span>
+          </div>
+          <div style="font-size:1rem;font-weight:800;color:var(--text-dark)">3.42%</div>
+          <div style="font-size:.55rem;color:var(--success);font-weight:600"><i class="fas fa-arrow-up" style="font-size:.5rem"></i> 0.8% vs Apr</div>
+        </div>
+        <div style="background:rgba(79,70,229,.06);padding:10px;border-radius:10px;border:1px solid rgba(79,70,229,.1)">
+          <div style="display:flex;align-items:center;gap:4px;margin-bottom:4px">
+            <i class="fas fa-receipt" style="color:var(--blue);font-size:.65rem"></i>
+            <span style="font-size:.6rem;color:var(--text-light);font-weight:600">Avg. Order</span>
+          </div>
+          <div style="font-size:1rem;font-weight:800;color:var(--text-dark)">$143.63</div>
+          <div style="font-size:.55rem;color:var(--success);font-weight:600"><i class="fas fa-arrow-up" style="font-size:.5rem"></i> 5.7% vs Apr</div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:16px">
+        <div style="background:rgba(79,70,229,.04);padding:12px;border-radius:10px;border:1px solid rgba(79,70,229,.08)">
+          <div style="font-size:.65rem;color:var(--text-light);font-weight:600;margin-bottom:8px">Revenue Over Time</div>
+          <div style="display:flex;align-items:flex-end;gap:6px;height:60px;padding-bottom:4px">
+            <div style="flex:1;background:linear-gradient(to top,var(--blue),rgba(79,70,229,.3));border-radius:3px;height:40%"></div>
+            <div style="flex:1;background:linear-gradient(to top,var(--blue),rgba(79,70,229,.3));border-radius:3px;height:55%"></div>
+            <div style="flex:1;background:linear-gradient(to top,var(--blue),rgba(79,70,229,.3));border-radius:3px;height:45%"></div>
+            <div style="flex:1;background:linear-gradient(to top,var(--blue),rgba(79,70,229,.3));border-radius:3px;height:70%"></div>
+            <div style="flex:1;background:linear-gradient(to top,var(--blue),rgba(79,70,229,.3));border-radius:3px;height:60%"></div>
+            <div style="flex:1;background:linear-gradient(to top,var(--blue),rgba(79,70,229,.3));border-radius:3px;height:80%"></div>
+            <div style="flex:1;background:linear-gradient(to top,var(--blue),rgba(79,70,229,.3));border-radius:3px;height:90%"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:.5rem;color:var(--text-light)">
+            <span>May 1</span><span>May 5</span><span>May 10</span><span>May 15</span><span>May 20</span><span>May 25</span><span>May 30</span>
           </div>
         </div>
+        <div style="background:rgba(79,70,229,.04);padding:12px;border-radius:10px;border:1px solid rgba(79,70,229,.08);display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <div style="font-size:.65rem;color:var(--text-light);font-weight:600;margin-bottom:8px">Revenue by Channel</div>
+          <div style="width:70px;height:70px;border-radius:50%;background:conic-gradient(var(--blue) 0deg 190deg, var(--purple) 190deg 280deg, #10b981 280deg 330deg, #f59e0b 330deg 360deg);position:relative">
+            <div style="position:absolute;inset:18px;background:#fff;border-radius:50%"></div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;justify-content:center">
+            <span style="font-size:.5rem;display:flex;align-items:center;gap:2px"><span style="width:6px;height:6px;border-radius:2px;background:var(--blue);display:inline-block"></span>Website</span>
+            <span style="font-size:.5rem;display:flex;align-items:center;gap:2px"><span style="width:6px;height:6px;border-radius:2px;background:var(--purple);display:inline-block"></span>Referral</span>
+            <span style="font-size:.5rem;display:flex;align-items:center;gap:2px"><span style="width:6px;height:6px;border-radius:2px;background:#10b981;display:inline-block"></span>Email</span>
+            <span style="font-size:.5rem;display:flex;align-items:center;gap:2px"><span style="width:6px;height:6px;border-radius:2px;background:#f59e0b;display:inline-block"></span>Social</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:rgba(79,70,229,.06);padding:12px;border-radius:10px;border:1px solid rgba(79,70,229,.1);display:flex;align-items:center;gap:10px">
+        <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center">
+          <i class="fas fa-robot" style="color:#fff;font-size:.7rem"></i>
+        </div>
+        <div style="flex:1">
+          <div style="font-size:.7rem;font-weight:700;color:var(--text-dark)">AI Assistant</div>
+          <div style="font-size:.6rem;color:var(--text-light)">Hi! I can help you analyze your data, generate reports, or answer questions.</div>
+        </div>
+        <i class="fas fa-paper-plane" style="color:var(--blue);font-size:.7rem"></i>
       </div>
     </div>
   </div>
@@ -498,28 +752,28 @@ footer{
       <h2>What We Offer</h2>
       <div class="sec-line r"></div>
     </div>
-    <p class="sec-sub">Comprehensive digital solutions tailored to your business</p>
+    <p class="sec-sub">Comprehensive digital solutions tailored to your business needs</p>
   </div>
   <div class="offer-grid">
     <div class="offer-card card-spot reveal reveal-d1">
-      <div class="offer-icon"></div>
-      <h3>Web Development</h3>
-      <p>Custom-built websites and applications optimized for performance and conversions.</p>
+      <div class="offer-icon"><i class="fas fa-chart-column"></i></div>
+      <h3>Analytics Dashboards</h3>
+      <p>Power BI dashboards, KPI scorecards, financial reporting, survey dashboards, and executive reporting systems.</p>
     </div>
     <div class="offer-card card-spot reveal reveal-d2">
-      <div class="offer-icon"></div>
-      <h3>Analytics & Dashboards</h3>
-      <p>Real-time data visualization and actionable insights for your business.</p>
+      <div class="offer-icon"><i class="fas fa-chart-pie"></i></div>
+      <h3>Research Analytics Suite</h3>
+      <p>End-to-end analytics support for research firms — from survey data cleaning and segmentation to benchmarking, scorecards, dashboards, and client-ready insights.</p>
     </div>
     <div class="offer-card card-spot reveal reveal-d3">
-      <div class="offer-icon"></div>
-      <h3>Process Automation</h3>
-      <p>AI-powered workflows to streamline operations and scale efficiently.</p>
+      <div class="offer-icon"><i class="fas fa-robot"></i></div>
+      <h3>AI & Workflow Automation</h3>
+      <p>AI chatbots, WhatsApp assistants, automated reporting workflows, Excel/Power Query automation, and custom business process automation.</p>
     </div>
-    <div class="offer-card card-spot reveal">
-      <div class="offer-icon"></div>
-      <h3>AI Integration</h3>
-      <p>Intelligent solutions that enhance and automate your digital presence.</p>
+    <div class="offer-card card-spot reveal reveal-d4">
+      <div class="offer-icon"><i class="fas fa-code"></i></div>
+      <h3>Web & API Development</h3>
+      <p>Business websites, landing pages, backend APIs, database-connected systems, and integrations with AI, dashboards, and third-party tools.</p>
     </div>
   </div>
 </section>
@@ -528,27 +782,46 @@ footer{
   <div class="research-section">
     <div class="research-left">
       <h3>Research Analytics Suite</h3>
-      <p>Unlock powerful insights with our comprehensive analytics platform designed for modern businesses.</p>
+      <p>A complete reporting and analytics solution for research and insights firms.</p>
+      <p style="font-size:.9rem;color:var(--text-light);line-height:1.7;margin-bottom:24px">We help research teams move from raw survey responses to clean datasets, benchmarking logic, dashboards, scorecards, and client-ready reporting outputs.</p>
       <div class="research-features">
         <div class="research-item">
-          <div class="research-item-icon"></div>
-          <div class="research-item-text">Advanced reporting and forecasting</div>
+          <div class="research-item-icon"><i class="fas fa-broom"></i></div>
+          <div class="research-item-text">Survey data cleaning</div>
         </div>
         <div class="research-item">
-          <div class="research-item-icon"></div>
-          <div class="research-item-text">Deep customer insights and behavior analysis</div>
+          <div class="research-item-icon"><i class="fas fa-users"></i></div>
+          <div class="research-item-text">Respondent segmentation</div>
         </div>
         <div class="research-item">
-          <div class="research-item-icon"></div>
-          <div class="research-item-text">Real-time data processing and alerts</div>
+          <div class="research-item-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="research-item-text">Benchmarking logic</div>
         </div>
         <div class="research-item">
-          <div class="research-item-icon"></div>
-          <div class="research-item-text">Seamless integration with your tools</div>
+          <div class="research-item-icon"><i class="fas fa-chart-area"></i></div>
+          <div class="research-item-text">Power BI dashboards</div>
+        </div>
+        <div class="research-item">
+          <div class="research-item-icon"><i class="fas fa-star"></i></div>
+          <div class="research-item-text">Scorecards</div>
+        </div>
+        <div class="research-item">
+          <div class="research-item-icon"><i class="fas fa-database"></i></div>
+          <div class="research-item-text">SQL reporting views</div>
+        </div>
+        <div class="research-item">
+          <div class="research-item-icon"><i class="fas fa-bolt"></i></div>
+          <div class="research-item-text">Power Query automation</div>
+        </div>
+        <div class="research-item">
+          <div class="research-item-icon"><i class="fas fa-shield-check"></i></div>
+          <div class="research-item-text">Data validation checks</div>
         </div>
       </div>
     </div>
-    <div class="research-right"></div>
+    <div class="research-right">
+      <i class="fas fa-lightbulb" style="color:var(--blue);opacity:.3"></i>
+    </div>
   </div>
 </section>
 
@@ -556,31 +829,31 @@ footer{
   <div class="sec-head reveal">
     <div class="sec-title-row">
       <div class="sec-line"></div>
-      <h2>Why Work With CodexAnalytics</h2>
+      <h2>Why Work With CodeExAnalytics?</h2>
       <div class="sec-line r"></div>
     </div>
     <p class="sec-sub">Industry-leading expertise and proven results</p>
   </div>
   <div class="why-grid">
     <div class="why-card card-spot reveal reveal-d1">
-      <div class="why-icon"></div>
-      <h3>Strategic Focus</h3>
-      <p>Solutions aligned with your business objectives and goals.</p>
+      <div class="why-icon"><i class="fas fa-users"></i></div>
+      <h3>Business-first approach</h3>
+      <p>We focus on real business outcomes, not just reports. Every solution is designed to solve practical problems and drive impact.</p>
     </div>
     <div class="why-card card-spot reveal reveal-d2">
-      <div class="why-icon"></div>
-      <h3>High Performance</h3>
-      <p>Fast, scalable, and reliable systems built to last.</p>
+      <div class="why-icon"><i class="fas fa-puzzle-piece"></i></div>
+      <h3>Analytics + development together</h3>
+      <p>We combine data analytics, automation, and full-stack development to deliver end-to-end systems.</p>
     </div>
     <div class="why-card card-spot reveal reveal-d3">
-      <div class="why-icon"></div>
-      <h3>Expert Support</h3>
-      <p>Dedicated team with decades of combined experience.</p>
+      <div class="why-icon"><i class="fas fa-rocket"></i></div>
+      <h3>Flexible for growing teams</h3>
+      <p>We adapt to your workflows and tools, working as an extension of your team whenever you need us.</p>
     </div>
-    <div class="why-card card-spot reveal">
-      <div class="why-icon"></div>
-      <h3>Innovation</h3>
-      <p>Cutting-edge technologies and creative solutions.</p>
+    <div class="why-card card-spot reveal reveal-d4">
+      <div class="why-icon"><i class="fas fa-shield-check"></i></div>
+      <h3>Built for real operations</h3>
+      <p>Our solutions are reliable, scalable, and maintainable — built to support day-to-day operations and long-term growth.</p>
     </div>
   </div>
 </section>
@@ -596,47 +869,36 @@ footer{
   </div>
   <div class="work-grid">
     <div class="work-card card-spot reveal reveal-d1">
-      <div class="work-img"></div>
+      <div class="work-img"><i class="fas fa-chart-bar" style="color:var(--blue);font-size:3rem"></i></div>
       <div class="work-body">
         <div>
-          <span class="work-tag">E-Commerce</span>
-          <h3>Premium Fashion Redesign</h3>
-          <p>Complete redesign of luxury retailer with 156% conversion increase.</p>
+          <span class="work-tag">Analytics</span>
+          <h3>Research Dashboard & Scorecard System</h3>
+          <p>End-to-end research analytics platform with data cleaning, benchmarking, dashboards, and automated scorecards.</p>
         </div>
-        <a href="#" class="work-link">View Case Study →</a>
+        <a href="#" class="work-link"><i class="fas fa-arrow-right"></i>View Case Study</a>
       </div>
     </div>
     <div class="work-card card-spot reveal reveal-d2">
-      <div class="work-img"></div>
+      <div class="work-img"><i class="fas fa-robot" style="color:var(--purple);font-size:3rem"></i></div>
       <div class="work-body">
         <div>
-          <span class="work-tag" style="background:rgba(124,58,237,.1);color:#7c3aed">SaaS</span>
-          <h3>Enterprise Analytics Platform</h3>
-          <p>Comprehensive dashboard supporting 500+ users with 99.8% uptime.</p>
+          <span class="work-tag" style="background:rgba(124,58,237,.1);color:#7c3aed">AI</span>
+          <h3>AI Chatbot for Business Support</h3>
+          <p>Intelligent AI assistant integrated with website to answer questions, capture leads, and support users.</p>
         </div>
-        <a href="#" class="work-link">View Case Study →</a>
+        <a href="#" class="work-link"><i class="fas fa-arrow-right"></i>View Case Study</a>
       </div>
     </div>
     <div class="work-card card-spot reveal reveal-d3">
-      <div class="work-img"></div>
+      <div class="work-img"><i class="fas fa-bag-shopping" style="color:#10b981;font-size:3rem"></i></div>
       <div class="work-body">
         <div>
-          <span class="work-tag" style="background:rgba(16,184,129,.1);color:#10b981">Corporate</span>
-          <h3>Website Modernization</h3>
-          <p>Fortune 500 redesign with 240% performance improvement.</p>
+          <span class="work-tag" style="background:rgba(16,184,129,.1);color:#10b981">E-commerce</span>
+          <h3>E-commerce Website Support</h3>
+          <p>Ongoing support, feature enhancements, and automation workflows for a growing e-commerce business.</p>
         </div>
-        <a href="#" class="work-link">View Case Study →</a>
-      </div>
-    </div>
-    <div class="work-card card-spot reveal">
-      <div class="work-img"></div>
-      <div class="work-body">
-        <div>
-          <span class="work-tag" style="background:rgba(59,130,246,.1);color:#3b82f6">Mobile</span>
-          <h3>Fitness App Launch</h3>
-          <p>Cross-platform app with 150k+ downloads and 4.8★ rating.</p>
-        </div>
-        <a href="#" class="work-link">View Case Study →</a>
+        <a href="#" class="work-link"><i class="fas fa-arrow-right"></i>View Case Study</a>
       </div>
     </div>
   </div>
@@ -649,37 +911,54 @@ footer{
       <h2>How We Work</h2>
       <div class="sec-line r"></div>
     </div>
-    <p class="sec-sub">Our proven process for delivering excellence</p>
+    <p class="sec-sub">Our proven four-step process for delivering excellence</p>
   </div>
   <div class="how-grid">
     <div class="how-card card-spot reveal reveal-d1">
-      <div class="how-step">01</div>
-      <h3>Discovery</h3>
-      <p>We understand your goals, market, and requirements to create strategic alignment.</p>
+      <div class="how-step"><i class="fas fa-magnifying-glass" style="font-size:1.4rem"></i></div>
+      <h3>Understand the Business Need</h3>
+      <p>We learn your goals, challenges, and workflows to define the right solution.</p>
     </div>
     <div class="how-card card-spot reveal reveal-d2">
-      <div class="how-step">02</div>
-      <h3>Development</h3>
-      <p>Our team builds scalable solutions with clean code, testing, and security focus.</p>
+      <div class="how-step"><i class="fas fa-database" style="font-size:1.4rem"></i></div>
+      <h3>Structure the Data or Workflow</h3>
+      <p>We organize data, design logic, and map processes for accuracy and clarity.</p>
     </div>
     <div class="how-card card-spot reveal reveal-d3">
-      <div class="how-step">03</div>
-      <h3>Launch & Support</h3>
-      <p>We deploy, monitor, optimize, and provide ongoing support for success.</p>
+      <div class="how-step"><i class="fas fa-code" style="font-size:1.4rem"></i></div>
+      <h3>Build the Solution</h3>
+      <p>We develop dashboards, automations, AI tools, and systems tailored to you.</p>
+    </div>
+    <div class="how-card card-spot reveal reveal-d4">
+      <div class="how-step"><i class="fas fa-check-circle" style="font-size:1.4rem"></i></div>
+      <h3>Deliver & Improve</h3>
+      <p>We deploy, train your team, and continuously optimize for better results.</p>
     </div>
   </div>
 </section>
 
-
-
 <section id="cta">
-  <h2 class="reveal">Ready to Build Something Extraordinary?</h2>
-  <p class="reveal">Let's discuss your project and transform your digital presence together.</p>
-  <a href="mailto:hello@codexanalytics.com" class="btn-cta reveal" style="display:inline-flex;align-items:center;gap:8px;margin-top:4px">Get Started Today</a>
+  <h2 class="reveal">Ready to Build Smarter Business Systems?</h2>
+  <p class="reveal">Whether you need dashboards, automation, AI assistants, or a research analytics solution, CodeExAnalytics can help turn your data and workflows into practical business tools.</p>
+  <a href="mailto:hello@codexanalytics.com" class="btn-cta reveal"><i class="fas fa-arrow-right"></i>Start a Project</a>
 </section>
 
 <footer>
-  <p>© 2026 CodexAnalytics · Building digital excellence · <a href="mailto:hello@codexanalytics.com" style="color:var(--blue);text-decoration:none">hello@codexanalytics.com</a></p>
+  <div>
+    <p style="margin-bottom:8px"><strong>CodeExAnalytics</strong> · Analytics, Automation, AI & Web Systems</p>
+    <p><a href="mailto:hello@codexanalytics.com" style="color:var(--blue);text-decoration:none">hello@codexanalytics.com</a></p>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#offer">Services</a></li>
+    <li><a href="#work">Solutions</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#cta">Contact</a></li>
+  </ul>
+  <ul class="footer-socials">
+    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+    <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+  </ul>
 </footer>
 
 <script>
@@ -784,7 +1063,7 @@ dbParent.addEventListener('mousemove',e=>{
 });
 dbParent.addEventListener('mouseleave',()=>{
   dbCard.style.transform='perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
-  dbCard.style.boxShadow='0 20px 64px rgba(0,0,0,.08),0 0 40px rgba(79,70,229,.12)';
+  dbCard.style.boxShadow='0 24px 80px rgba(0,0,0,.1),0 0 60px rgba(79,70,229,.15)';
 });
 
 document.querySelectorAll('.card-spot').forEach(card=>{
