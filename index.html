@@ -31,54 +31,9 @@ html{scroll-behavior:smooth}
 
 body{
   font-family:var(--font);
-  background:linear-gradient(135deg,var(--bg-light) 0%,#f0f9ff 100%);
+  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 40%, #f0f9ff 100%);
   color:var(--text-dark);
   overflow-x:hidden;
-  cursor:none;
-}
-
-#cursor-dot{
-  position:fixed;
-  width:8px;height:8px;
-  background:var(--blue);
-  border-radius:50%;
-  pointer-events:none;
-  z-index:9999;
-  transform:translate(-50%,-50%);
-  transition:transform .08s ease, background .2s, width .2s, height .2s;
-  mix-blend-mode:multiply;
-}
-#cursor-ring{
-  position:fixed;
-  width:36px;height:36px;
-  border:1.5px solid rgba(79,70,229,.4);
-  border-radius:50%;
-  pointer-events:none;
-  z-index:9998;
-  transform:translate(-50%,-50%);
-  transition:transform .14s ease, width .25s ease, height .25s ease,
-             border-color .25s, opacity .25s;
-}
-body:hover #cursor-dot{opacity:1}
-.cursor-hover #cursor-dot{
-  width:12px;height:12px;
-  background:var(--blue2);
-}
-.cursor-hover #cursor-ring{
-  width:52px;height:52px;
-  border-color:rgba(79,70,229,.65);
-}
-
-#cursor-glow{
-  position:fixed;
-  width:400px;height:400px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(79,70,229,.08) 0%,rgba(124,58,237,.04) 40%,transparent 70%);
-  pointer-events:none;
-  z-index:0;
-  transform:translate(-50%,-50%);
-  transition:transform .04s linear;
-  will-change:transform;
 }
 
 #bg-static{
@@ -178,10 +133,14 @@ nav.solid{
 
 #hero{
   min-height:100vh;
-  display:flex;align-items:center;
+  display:flex;
+  align-items:center;
   padding:90px 56px 60px;
   gap:48px;
-  position:relative;z-index:1;
+  position:relative;
+  z-index:1;
+  background: linear-gradient(135deg, rgba(79,70,229,0.08), rgba(124,58,237,0.06));
+  border-bottom: 1px solid rgba(79,70,229,0.08);
 }
 .hero-left{flex:1;max-width:520px}
 .hero-left h1{
@@ -194,6 +153,7 @@ nav.solid{
   -webkit-text-fill-color:transparent;
   background-clip:text;
 }
+
 .hero-left p{
   font-size:1rem;color:var(--text-light);line-height:1.75;
   margin-bottom:36px;max-width:420px;font-weight:400;
@@ -410,8 +370,26 @@ nav.solid{
   font-size:3.5rem;
   border-bottom:1px solid rgba(209,213,219,.3);
   transition:transform .3s;
+  overflow:hidden;
+  position:relative;
 }
-.work-card:hover .work-img{transform:scale(1.05)}
+.work-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .3s;
+}
+.work-card:hover .work-img img{
+  transform:scale(1.05);
+}
+.work-card:hover .work-img i{
+  opacity:0;
+}
+.work-img i{
+  position:absolute;
+  transition:opacity .3s;
+  color:var(--blue);
+}
 .work-body{padding:28px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
 .work-tag{
   display:inline-block;font-size:.7rem;padding:6px 14px;
@@ -573,8 +551,6 @@ footer{
 }
 
 @media(max-width:768px){
-  body{cursor:auto}
-  #cursor-dot,#cursor-ring,#cursor-glow{display:none}
   nav{padding:14px 24px}
   nav.solid{padding:12px 24px}
   .nav-links{display:none}
@@ -603,10 +579,6 @@ footer{
 </head>
 <body>
 
-<div id="cursor-dot"></div>
-<div id="cursor-ring"></div>
-<div id="cursor-glow"></div>
-<div id="mouse-light"></div>
 <div id="bg-static"></div>
 <div class="parallax-layer" id="pl1"></div>
 <div class="parallax-layer" id="pl2"></div>
@@ -868,8 +840,28 @@ footer{
     <p class="sec-sub">Recent success stories and case studies</p>
   </div>
   <div class="work-grid">
+    
+    <div class="work-card card-spot reveal reveal-d3">
+      <div class="work-img">
+        <img src="cuddle.png" alt="Cuddlebabywear E-commerce Website" loading="lazy">
+      </div>
+      <div class="work-body">
+        <div>
+          <span class="work-tag" style="background:rgba(52,211,153,.15);color:#34d399">E-commerce</span>
+          <h3>Full E-commerce Website — Cuddlebabywear</h3>
+          <p>
+            Designed and developed the complete <strong>Cuddlebabywear.com</strong> e-commerce platform, including product catalog, add-to-cart, wishlist system, secure checkout flow, and an integrated AI chatbot for customer support and engagement.
+          </p>
+        </div>
+        <a href="https://cuddlebabywear.com/" class="work-link" target="_blank">
+          <i class="fas fa-arrow-right"></i>Visit Website
+        </a>
+      </div>
+    </div>
     <div class="work-card card-spot reveal reveal-d1">
-      <div class="work-img"><i class="fas fa-chart-bar" style="color:var(--blue);font-size:3rem"></i></div>
+      <div class="work-img">
+        <img src="dashboard.png" alt="Research Dashboard & Scorecard System" loading="lazy">
+      </div>
       <div class="work-body">
         <div>
           <span class="work-tag">Analytics</span>
@@ -879,8 +871,11 @@ footer{
         <a href="#" class="work-link"><i class="fas fa-arrow-right"></i>View Case Study</a>
       </div>
     </div>
+
     <div class="work-card card-spot reveal reveal-d2">
-      <div class="work-img"><i class="fas fa-robot" style="color:var(--purple);font-size:3rem"></i></div>
+      <div class="work-img">
+        <img src="chatbot.png" alt="AI Chatbot for Business Support" loading="lazy">
+      </div>
       <div class="work-body">
         <div>
           <span class="work-tag" style="background:rgba(124,58,237,.1);color:#7c3aed">AI</span>
@@ -890,17 +885,7 @@ footer{
         <a href="#" class="work-link"><i class="fas fa-arrow-right"></i>View Case Study</a>
       </div>
     </div>
-    <div class="work-card card-spot reveal reveal-d3">
-      <div class="work-img"><i class="fas fa-bag-shopping" style="color:#10b981;font-size:3rem"></i></div>
-      <div class="work-body">
-        <div>
-          <span class="work-tag" style="background:rgba(16,184,129,.1);color:#10b981">E-commerce</span>
-          <h3>E-commerce Website Support</h3>
-          <p>Ongoing support, feature enhancements, and automation workflows for a growing e-commerce business.</p>
-        </div>
-        <a href="#" class="work-link"><i class="fas fa-arrow-right"></i>View Case Study</a>
-      </div>
-    </div>
+
   </div>
 </section>
 
@@ -964,36 +949,6 @@ footer{
 <script>
 (function(){
 'use strict';
-
-const dot=document.getElementById('cursor-dot');
-const ring=document.getElementById('cursor-ring');
-const glow=document.getElementById('cursor-glow');
-const mLight=document.getElementById('mouse-light');
-let mx=0,my=0,rx=0,ry=0,glowX=0,glowY=0;
-
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX;my=e.clientY;
-  dot.style.left=mx+'px';dot.style.top=my+'px';
-  glow.style.left=mx+'px';glow.style.top=my+'px';
-});
-
-let lastRaf=0;
-function raf(t){
-  if(t-lastRaf>16){
-    lastRaf=t;
-    rx+=(mx-rx)*.22;ry+=(my-ry)*.22;
-    ring.style.left=rx+'px';ring.style.top=ry+'px';
-    glowX+=(mx-glowX)*.04;glowY+=(my-glowY)*.04;
-    mLight.style.left=glowX+'px';mLight.style.top=glowY+'px';
-  }
-  requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
-
-document.querySelectorAll('a,button,.offer-card,.why-card,.how-card,.work-card,.test-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
-});
 
 const canvas=document.getElementById('stars');
 const ctx=canvas.getContext('2d');
