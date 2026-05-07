@@ -1,3 +1,4 @@
+<!-- MAIN INDEX.HTML (Enhanced with Service Detail Buttons) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -276,6 +277,18 @@ nav.solid{
 .offer-card:hover .offer-icon{transform:scale(1.1) rotate(5deg)}
 .offer-card h3{font-size:1.05rem;font-weight:700;color:var(--text-dark);margin-bottom:10px}
 .offer-card p{font-size:.9rem;color:var(--text-light);line-height:1.7}
+.offer-card .service-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-top:18px;
+  font-size:.8rem;
+  font-weight:600;
+  color:var(--blue);
+  text-decoration:none;
+  transition:gap .2s;
+}
+.offer-card .service-link:hover{gap:10px;color:var(--purple)}
 
 .research-section{
   max-width:1200px;margin:0 auto;
@@ -575,7 +588,6 @@ footer{
   *{transition:none!important;animation:none!important}
 }
 </style>
-
 </head>
 <body>
 
@@ -731,21 +743,25 @@ footer{
       <div class="offer-icon"><i class="fas fa-chart-column"></i></div>
       <h3>Analytics Dashboards</h3>
       <p>Power BI dashboards, KPI scorecards, financial reporting, survey dashboards, and executive reporting systems.</p>
+      <a href="analytics.html" class="service-link">View Details <i class="fas fa-arrow-right"></i></a>
     </div>
     <div class="offer-card card-spot reveal reveal-d2">
       <div class="offer-icon"><i class="fas fa-chart-pie"></i></div>
       <h3>Research Analytics Suite</h3>
-      <p>End-to-end analytics support for research firms — from survey data cleaning and segmentation to benchmarking, scorecards, dashboards, and client-ready insights.</p>
+      <p>End-to-end analytics support for research firms — from survey data cleaning to segmentation, benchmarking, and client-ready insights.</p>
+      <a href="research.html" class="service-link">View Details <i class="fas fa-arrow-right"></i></a>
     </div>
     <div class="offer-card card-spot reveal reveal-d3">
       <div class="offer-icon"><i class="fas fa-robot"></i></div>
       <h3>AI & Workflow Automation</h3>
       <p>AI chatbots, WhatsApp assistants, automated reporting workflows, Excel/Power Query automation, and custom business process automation.</p>
+      <a href="ai.html" class="service-link">View Details <i class="fas fa-arrow-right"></i></a>
     </div>
     <div class="offer-card card-spot reveal reveal-d4">
       <div class="offer-icon"><i class="fas fa-code"></i></div>
       <h3>Web & API Development</h3>
       <p>Business websites, landing pages, backend APIs, database-connected systems, and integrations with AI, dashboards, and third-party tools.</p>
+      <a href="web.html" class="service-link">View Details <i class="fas fa-arrow-right"></i></a>
     </div>
   </div>
 </section>
@@ -757,308 +773,66 @@ footer{
       <p>A complete reporting and analytics solution for research and insights firms.</p>
       <p style="font-size:.9rem;color:var(--text-light);line-height:1.7;margin-bottom:24px">We help research teams move from raw survey responses to clean datasets, benchmarking logic, dashboards, scorecards, and client-ready reporting outputs.</p>
       <div class="research-features">
-        <div class="research-item">
-          <div class="research-item-icon"><i class="fas fa-broom"></i></div>
-          <div class="research-item-text">Survey data cleaning</div>
-        </div>
-        <div class="research-item">
-          <div class="research-item-icon"><i class="fas fa-users"></i></div>
-          <div class="research-item-text">Respondent segmentation</div>
-        </div>
-        <div class="research-item">
-          <div class="research-item-icon"><i class="fas fa-chart-line"></i></div>
-          <div class="research-item-text">Benchmarking logic</div>
-        </div>
-        <div class="research-item">
-          <div class="research-item-icon"><i class="fas fa-chart-area"></i></div>
-          <div class="research-item-text">Power BI dashboards</div>
-        </div>
-        <div class="research-item">
-          <div class="research-item-icon"><i class="fas fa-star"></i></div>
-          <div class="research-item-text">Scorecards</div>
-        </div>
-        <div class="research-item">
-          <div class="research-item-icon"><i class="fas fa-database"></i></div>
-          <div class="research-item-text">SQL reporting views</div>
-        </div>
-        <div class="research-item">
-          <div class="research-item-icon"><i class="fas fa-bolt"></i></div>
-          <div class="research-item-text">Power Query automation</div>
-        </div>
-        <div class="research-item">
-          <div class="research-item-icon"><i class="fas fa-check-circle" style="font-size:1.4rem"></i></div>
-          <div class="research-item-text">Data validation checks</div>
-        </div>
+        <div class="research-item"><div class="research-item-icon"><i class="fas fa-broom"></i></div><div class="research-item-text">Survey data cleaning</div></div>
+        <div class="research-item"><div class="research-item-icon"><i class="fas fa-users"></i></div><div class="research-item-text">Respondent segmentation</div></div>
+        <div class="research-item"><div class="research-item-icon"><i class="fas fa-chart-line"></i></div><div class="research-item-text">Benchmarking logic</div></div>
+        <div class="research-item"><div class="research-item-icon"><i class="fas fa-chart-area"></i></div><div class="research-item-text">Power BI dashboards</div></div>
+        <div class="research-item"><div class="research-item-icon"><i class="fas fa-star"></i></div><div class="research-item-text">Scorecards</div></div>
+        <div class="research-item"><div class="research-item-icon"><i class="fas fa-database"></i></div><div class="research-item-text">SQL reporting views</div></div>
+        <div class="research-item"><div class="research-item-icon"><i class="fas fa-bolt"></i></div><div class="research-item-text">Power Query automation</div></div>
+        <div class="research-item"><div class="research-item-icon"><i class="fas fa-check-circle" style="font-size:1.4rem"></i></div><div class="research-item-text">Data validation checks</div></div>
       </div>
     </div>
-    <div class="research-right">
-      <i class="fas fa-lightbulb" style="color:var(--blue);opacity:.3"></i>
-    </div>
+    <div class="research-right"><i class="fas fa-lightbulb" style="color:var(--blue);opacity:.3"></i></div>
   </div>
 </section>
 
 <section id="why" class="sec" style="padding-top:0">
   <div class="sec-head reveal">
-    <div class="sec-title-row">
-      <div class="sec-line"></div>
-      <h2>Why Work With CodeExAnalytics?</h2>
-      <div class="sec-line r"></div>
-    </div>
+    <div class="sec-title-row"><div class="sec-line"></div><h2>Why Work With CodeExAnalytics?</h2><div class="sec-line r"></div></div>
     <p class="sec-sub">Industry-leading expertise and proven results</p>
   </div>
   <div class="why-grid">
-    <div class="why-card card-spot reveal reveal-d1">
-      <div class="why-icon"><i class="fas fa-users"></i></div>
-      <h3>Business-first approach</h3>
-      <p>We focus on real business outcomes, not just reports. Every solution is designed to solve practical problems and drive impact.</p>
-    </div>
-    <div class="why-card card-spot reveal reveal-d2">
-      <div class="why-icon"><i class="fas fa-puzzle-piece"></i></div>
-      <h3>Analytics + development together</h3>
-      <p>We combine data analytics, automation, and full-stack development to deliver end-to-end systems.</p>
-    </div>
-    <div class="why-card card-spot reveal reveal-d3">
-      <div class="why-icon"><i class="fas fa-rocket"></i></div>
-      <h3>Flexible for growing teams</h3>
-      <p>We adapt to your workflows and tools, working as an extension of your team whenever you need us.</p>
-    </div>
-    <div class="why-card card-spot reveal reveal-d4">
-      <div class="why-icon"><i class="fas fa-check-circle" style="font-size:1.4rem"></i></div>
-      <h3>Built for real operations</h3>
-      <p>Our solutions are reliable, scalable, and maintainable — built to support day-to-day operations and long-term growth.</p>
-    </div>
+    <div class="why-card card-spot reveal reveal-d1"><div class="why-icon"><i class="fas fa-users"></i></div><h3>Business-first approach</h3><p>We focus on real business outcomes, not just reports.</p></div>
+    <div class="why-card card-spot reveal reveal-d2"><div class="why-icon"><i class="fas fa-puzzle-piece"></i></div><h3>Analytics + development together</h3><p>We combine data analytics, automation, and full-stack development.</p></div>
+    <div class="why-card card-spot reveal reveal-d3"><div class="why-icon"><i class="fas fa-rocket"></i></div><h3>Flexible for growing teams</h3><p>We adapt to your workflows and tools.</p></div>
+    <div class="why-card card-spot reveal reveal-d4"><div class="why-icon"><i class="fas fa-check-circle"></i></div><h3>Built for real operations</h3><p>Reliable, scalable, and maintainable systems.</p></div>
   </div>
 </section>
 
 <section id="work" class="sec" style="padding-top:0">
-  <div class="sec-head reveal">
-    <div class="sec-title-row">
-      <div class="sec-line"></div>
-      <h2>Selected Work</h2>
-      <div class="sec-line r"></div>
-    </div>
-    <p class="sec-sub">Recent success stories and case studies</p>
-  </div>
+  <div class="sec-head reveal"><div class="sec-title-row"><div class="sec-line"></div><h2>Selected Work</h2><div class="sec-line r"></div></div><p class="sec-sub">Recent success stories and case studies</p></div>
   <div class="work-grid">
-    
-    <div class="work-card card-spot reveal reveal-d3">
-      <div class="work-img">
-        <img src="cuddle.png" alt="Cuddlebabywear E-commerce Website" loading="lazy">
-      </div>
-      <div class="work-body">
-        <div>
-          <span class="work-tag" style="background:rgba(52,211,153,.15);color:#34d399">E-commerce</span>
-          <h3>Full E-commerce Website — Cuddlebabywear</h3>
-          <p>
-            Designed and developed the complete <strong>Cuddlebabywear.com</strong> e-commerce platform, including product catalog, add-to-cart, wishlist system, secure checkout flow, and an integrated AI chatbot for customer support and engagement.
-          </p>
-        </div>
-        <a href="https://cuddlebabywear.com/" class="work-link" target="_blank">
-          <i class="fas fa-arrow-right"></i>Visit Website
-        </a>
-      </div>
-    </div>
-    <div class="work-card card-spot reveal reveal-d1">
-      <div class="work-img">
-        <img src="dashboard.png" alt="Research Dashboard & Scorecard System" loading="lazy">
-      </div>
-      <div class="work-body">
-        <div>
-          <span class="work-tag">Analytics</span>
-          <h3>Research Dashboard & Scorecard System</h3>
-          <p>End-to-end research analytics platform with data cleaning, benchmarking, dashboards, and automated scorecards.</p>
-        </div>
-        <a href="#" class="work-link"><i class="fas fa-arrow-right"></i>View Case Study</a>
-      </div>
-    </div>
-
-    <div class="work-card card-spot reveal reveal-d2">
-      <div class="work-img">
-        <img src="chat.png" alt="AI Chatbot for Business Support" loading="lazy">
-      </div>
-      <div class="work-body">
-        <div>
-          <span class="work-tag" style="background:rgba(124,58,237,.1);color:#7c3aed">AI</span>
-          <h3>AI Chatbot for Business Support</h3>
-          <p>Intelligent AI assistant integrated with website to answer questions, capture leads, and support users.</p>
-        </div>
-        <a href="#" class="work-link"><i class="fas fa-arrow-right"></i>View Case Study</a>
-      </div>
-    </div>
-
+    <div class="work-card card-spot reveal reveal-d3"><div class="work-img"><img src="cuddle.png" alt="Cuddlebabywear" loading="lazy"></div><div class="work-body"><div><span class="work-tag" style="background:rgba(52,211,153,.15);color:#34d399">E-commerce</span><h3>Full E-commerce Website — Cuddlebabywear</h3><p>Designed and developed complete e-commerce platform with AI chatbot support.</p></div><a href="https://cuddlebabywear.com/" class="work-link" target="_blank"><i class="fas fa-arrow-right"></i>Visit Website</a></div></div>
+    <div class="work-card card-spot reveal reveal-d1"><div class="work-img"><img src="dashboard.png" alt="Research Dashboard" loading="lazy"></div><div class="work-body"><div><span class="work-tag">Analytics</span><h3>Research Dashboard & Scorecard System</h3><p>End-to-end research analytics platform with data cleaning and dashboards.</p></div><a href="#" class="work-link"><i class="fas fa-arrow-right"></i>View Case Study</a></div></div>
+    <div class="work-card card-spot reveal reveal-d2"><div class="work-img"><img src="chat.png" alt="AI Chatbot" loading="lazy"></div><div class="work-body"><div><span class="work-tag" style="background:rgba(124,58,237,.1);color:#7c3aed">AI</span><h3>AI Chatbot for Business Support</h3><p>Intelligent AI assistant integrated with website to answer questions.</p></div><a href="#" class="work-link"><i class="fas fa-arrow-right"></i>View Case Study</a></div></div>
   </div>
 </section>
 
-<section class="sec" style="padding-top:0">
-  <div class="sec-head reveal">
-    <div class="sec-title-row">
-      <div class="sec-line"></div>
-      <h2>How We Work</h2>
-      <div class="sec-line r"></div>
-    </div>
-    <p class="sec-sub">Our proven four-step process for delivering excellence</p>
-  </div>
-  <div class="how-grid">
-    <div class="how-card card-spot reveal reveal-d1">
-      <div class="how-step"><i class="fas fa-magnifying-glass" style="font-size:1.4rem"></i></div>
-      <h3>Understand the Business Need</h3>
-      <p>We learn your goals, challenges, and workflows to define the right solution.</p>
-    </div>
-    <div class="how-card card-spot reveal reveal-d2">
-      <div class="how-step"><i class="fas fa-database" style="font-size:1.4rem"></i></div>
-      <h3>Structure the Data or Workflow</h3>
-      <p>We organize data, design logic, and map processes for accuracy and clarity.</p>
-    </div>
-    <div class="how-card card-spot reveal reveal-d3">
-      <div class="how-step"><i class="fas fa-code" style="font-size:1.4rem"></i></div>
-      <h3>Build the Solution</h3>
-      <p>We develop dashboards, automations, AI tools, and systems tailored to you.</p>
-    </div>
-    <div class="how-card card-spot reveal reveal-d4">
-      <div class="how-step"><i class="fas fa-check-circle" style="font-size:1.4rem"></i></div>
-      <h3>Deliver & Improve</h3>
-      <p>We deploy, train your team, and continuously optimize for better results.</p>
-    </div>
-  </div>
-</section>
+<section class="sec" style="padding-top:0"><div class="sec-head reveal"><div class="sec-title-row"><div class="sec-line"></div><h2>How We Work</h2><div class="sec-line r"></div></div><p class="sec-sub">Our proven four-step process for delivering excellence</p></div><div class="how-grid"><div class="how-card card-spot reveal reveal-d1"><div class="how-step"><i class="fas fa-magnifying-glass"></i></div><h3>Understand the Business Need</h3><p>We learn your goals and challenges.</p></div><div class="how-card card-spot reveal reveal-d2"><div class="how-step"><i class="fas fa-database"></i></div><h3>Structure the Data or Workflow</h3><p>We organize data and design logic.</p></div><div class="how-card card-spot reveal reveal-d3"><div class="how-step"><i class="fas fa-code"></i></div><h3>Build the Solution</h3><p>We develop dashboards, automations, AI tools.</p></div><div class="how-card card-spot reveal reveal-d4"><div class="how-step"><i class="fas fa-check-circle"></i></div><h3>Deliver & Improve</h3><p>We deploy and continuously optimize.</p></div></div></section>
 
-<section id="cta">
-  <h2 class="reveal">Ready to Build Smarter Business Systems?</h2>
-  <p class="reveal">Whether you need dashboards, automation, AI assistants, or a research analytics solution, CodeExAnalytics can help turn your data and workflows into practical business tools.</p>
-  <a href="mailto:hello@codexanalytics.com" class="btn-cta reveal"><i class="fas fa-arrow-right"></i>Start a Project</a>
-</section>
+<section id="cta"><h2 class="reveal">Ready to Build Smarter Business Systems?</h2><p class="reveal">Whether you need dashboards, automation, AI assistants, or a research analytics solution, CodeExAnalytics can help turn your data and workflows into practical business tools.</p><a href="mailto:hello@codexanalytics.com" class="btn-cta reveal"><i class="fas fa-arrow-right"></i>Start a Project</a></section>
 
-<footer>
-  <div>
-    <p style="margin-bottom:8px"><strong>CodeExAnalytics</strong> · Analytics, Automation, AI & Web Systems</p>
-    <p><a href="mailto:hello@codexanalytics.com" style="color:var(--blue);text-decoration:none">hello@codexanalytics.com</a></p>
-  </div>
-  <ul class="footer-links">
-    <li><a href="#offer">Services</a></li>
-    <li><a href="#work">Solutions</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#cta">Contact</a></li>
-  </ul>
-  <ul class="footer-socials">
-    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-    <li><a href="#"><i class="fas fa-envelope"></i></a></li>
-  </ul>
-</footer>
+<footer><div><p style="margin-bottom:8px"><strong>CodeExAnalytics</strong> · Analytics, Automation, AI & Web Systems</p><p><a href="mailto:hello@codexanalytics.com" style="color:var(--blue);text-decoration:none">hello@codexanalytics.com</a></p></div><ul class="footer-links"><li><a href="#offer">Services</a></li><li><a href="#work">Solutions</a></li><li><a href="#work">Work</a></li><li><a href="#cta">Contact</a></li></ul><ul class="footer-socials"><li><a href="#"><i class="fab fa-linkedin"></i></a></li><li><a href="#"><i class="fab fa-twitter"></i></a></li><li><a href="#"><i class="fas fa-envelope"></i></a></li></ul></footer>
 
 <script>
 (function(){
-'use strict';
-
-const canvas=document.getElementById('stars');
-const ctx=canvas.getContext('2d');
-let stars=[];
-
-function initStars(){
-  canvas.width=innerWidth;canvas.height=innerHeight;stars=[];
-  const n=Math.floor(canvas.width*canvas.height/3200);
-  for(let i=0;i<n;i++){
-    stars.push({
-      x:Math.random()*canvas.width,y:Math.random()*canvas.height,
-      r:Math.random()*.8+.15,a:Math.random(),v:Math.random()*.004+.0008,
-      d:Math.random()<.5?1:-1,depth:Math.random()
-    });
-  }
-}
-
-let scrollY_=0;
-window.addEventListener('scroll',()=>{scrollY_=window.scrollY},{passive:true});
-
-function drawStars(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  stars.forEach(s=>{
-    s.a+=s.v*s.d;
-    if(s.a>1||s.a<.05)s.d*=-1;
-    const py=(scrollY_*s.depth*0.12)%canvas.height;
-    let ry2=s.y-py;
-    if(ry2<0)ry2+=canvas.height;
-    ctx.beginPath();ctx.arc(s.x,ry2,s.r,0,Math.PI*2);
-    ctx.fillStyle=`rgba(100,110,200,${s.a*.6})`;ctx.fill();
-  });
-  requestAnimationFrame(drawStars);
-}
-initStars();
-window.addEventListener('resize',initStars);
-drawStars();
-
-const pl1=document.getElementById('pl1');
-const pl2=document.getElementById('pl2');
-const pl3=document.getElementById('pl3');
-let plx=0,ply=0;
-
-document.addEventListener('mousemove',e=>{
-  plx=(e.clientX/innerWidth-.5)*2;
-  ply=(e.clientY/innerHeight-.5)*2;
-});
-
-let plcx=0,plcy=0;
-function paralaxRaf(){
-  plcx+=(plx-plcx)*.04;plcy+=(ply-plcy)*.04;
-  pl1.style.transform=`translate(${plcx*-12}px,${plcy*-10}px)`;
-  pl2.style.transform=`translate(${plcx*-22}px,${plcy*-18}px)`;
-  pl3.style.transform=`translate(${plcx*-38}px,${plcy*-30}px)`;
-  requestAnimationFrame(paralaxRaf);
-}
+const canvas=document.getElementById('stars');const ctx=canvas.getContext('2d');let stars=[];
+function initStars(){canvas.width=innerWidth;canvas.height=innerHeight;stars=[];const n=Math.floor(canvas.width*canvas.height/3200);for(let i=0;i<n;i++){stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*.8+.15,a:Math.random(),v:Math.random()*.004+.0008,d:Math.random()<.5?1:-1,depth:Math.random()});}}
+let scrollY_=0;window.addEventListener('scroll',()=>{scrollY_=window.scrollY},{passive:true});
+function drawStars(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{s.a+=s.v*s.d;if(s.a>1||s.a<.05)s.d*=-1;const py=(scrollY_*s.depth*0.12)%canvas.height;let ry2=s.y-py;if(ry2<0)ry2+=canvas.height;ctx.beginPath();ctx.arc(s.x,ry2,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(100,110,200,${s.a*.6})`;ctx.fill();});requestAnimationFrame(drawStars);}
+initStars();window.addEventListener('resize',initStars);drawStars();
+const pl1=document.getElementById('pl1'),pl2=document.getElementById('pl2'),pl3=document.getElementById('pl3');let plx=0,ply=0;
+document.addEventListener('mousemove',e=>{plx=(e.clientX/innerWidth-.5)*2;ply=(e.clientY/innerHeight-.5)*2;});
+let plcx=0,plcy=0;function paralaxRaf(){plcx+=(plx-plcx)*.04;plcy+=(ply-plcy)*.04;pl1.style.transform=`translate(${plcx*-12}px,${plcy*-10}px)`;pl2.style.transform=`translate(${plcx*-22}px,${plcy*-18}px)`;pl3.style.transform=`translate(${plcx*-38}px,${plcy*-30}px)`;requestAnimationFrame(paralaxRaf);}
 paralaxRaf();
-
-const dbCard=document.getElementById('dbCard');
-const dbParent=dbCard.parentElement;
-dbParent.addEventListener('mousemove',e=>{
-  const rect=dbCard.getBoundingClientRect();
-  const cx=rect.left+rect.width/2;const cy=rect.top+rect.height/2;
-  const dx=(e.clientX-cx)/rect.width;const dy=(e.clientY-cy)/rect.height;
-  const rotX=-dy*10;const rotY=dx*12;
-  dbCard.style.transform=`perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.02)`;
-  dbCard.style.boxShadow=`${-rotY*2}px ${rotX*2+24}px 80px rgba(0,0,0,.08), 0 0 50px rgba(79,70,229,.16)`;
-});
-dbParent.addEventListener('mouseleave',()=>{
-  dbCard.style.transform='perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
-  dbCard.style.boxShadow='0 24px 80px rgba(0,0,0,.1),0 0 60px rgba(79,70,229,.15)';
-});
-
-document.querySelectorAll('.card-spot').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const r=card.getBoundingClientRect();
-    const x=e.clientX-r.left;const y=e.clientY-r.top;
-    card.style.setProperty('--spot-x',x+'px');
-    card.style.setProperty('--spot-y',y+'px');
-  });
-});
-
-const ro=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      ro.unobserve(entry.target);
-    }
-  });
-},{threshold:.1});
+const dbCard=document.getElementById('dbCard');const dbParent=dbCard.parentElement;dbParent.addEventListener('mousemove',e=>{const rect=dbCard.getBoundingClientRect();const cx=rect.left+rect.width/2;const cy=rect.top+rect.height/2;const dx=(e.clientX-cx)/rect.width;const dy=(e.clientY-cy)/rect.height;const rotX=-dy*10;const rotY=dx*12;dbCard.style.transform=`perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.02)`;dbCard.style.boxShadow=`${-rotY*2}px ${rotX*2+24}px 80px rgba(0,0,0,.08), 0 0 50px rgba(79,70,229,.16)`;});
+dbParent.addEventListener('mouseleave',()=>{dbCard.style.transform='perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';dbCard.style.boxShadow='0 24px 80px rgba(0,0,0,.1),0 0 60px rgba(79,70,229,.15)';});
+document.querySelectorAll('.card-spot').forEach(card=>{card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=e.clientX-r.left;const y=e.clientY-r.top;card.style.setProperty('--spot-x',x+'px');card.style.setProperty('--spot-y',y+'px');});});
+const ro=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');ro.unobserve(entry.target);}});},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
-
-const navEl=document.getElementById('nav');
-const allSections=['hero','offer','work','why','cta'];
-const navLinks=document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll',()=>{
-  const sy=window.scrollY;
-  navEl.classList.toggle('solid',sy>60);
-  let cur='';
-  allSections.forEach(id=>{
-    const el=document.getElementById(id);
-    if(el&&sy>=el.offsetTop-130)cur=id;
-  });
-  navLinks.forEach(a=>{
-    a.classList.remove('active');
-    const href=a.getAttribute('href').replace('#','');
-    if(href===cur||(cur==='hero'&&href===''))a.classList.add('active');
-  });
-},{passive:true});
-
+const navEl=document.getElementById('nav');const allSections=['hero','offer','work','why','cta'];const navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{const sy=window.scrollY;navEl.classList.toggle('solid',sy>60);let cur='';allSections.forEach(id=>{const el=document.getElementById(id);if(el&&sy>=el.offsetTop-130)cur=id;});navLinks.forEach(a=>{a.classList.remove('active');const href=a.getAttribute('href').replace('#','');if(href===cur||(cur==='hero'&&href===''))a.classList.add('active');});},{passive:true});
 })();
 </script>
 </body>
